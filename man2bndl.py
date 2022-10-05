@@ -123,6 +123,9 @@ def get_filename_from_url(url):
     name = path[path.rfind('/')+1:]
     return name or None
 
+def url_to_path(url):
+    return url.replace('https://', '').replace('/', '_')
+
 def touch(fname, times=None):
     with open(fname, 'a'):
         os.utime(fname, times)
@@ -203,9 +206,9 @@ class BundleCreator:
             print(f"\t...")
             
             hashed_file = os.path.join(hashed_files_dir, url_hash)
-            url_file = os.path.join(url_files_dir, perma_url.replace('/', ''))
+            url_file = os.path.join(url_files_dir, url_to_path(perma_url))
             labeled_file = os.path.join(labeled_files_dir, label)
-            subj_file = os.path.join(subj_files_dir, s.replace('/', ''))
+            subj_file = os.path.join(subj_files_dir, url_to_path(s))
             subj_name_file = os.path.join(subj_name_files_dir, subj_name)
             named_file = os.path.join(named_files_dir, file_name)
             path_file = os.path.join(path_files_dir, file_path)
