@@ -186,7 +186,7 @@ class BundleCreator:
 
         file_index = 0
         for s, p, perma_url in self.graph.triples((None, OKH.permaURL, None)):
-            url_hash = hashlib.sha224(perma_url.encode()).hexdigest()
+            url_hash = hashlib.sha1(perma_url.encode()).hexdigest()
             label = None
             for _, _, o in self.graph.triples((s, RDFS.label, None)):
                 label = o
