@@ -239,7 +239,7 @@ class BundleCreator:
 
     def create(self):
         if self.is_zip:
-            with tempfile.TemporaryDirectory(suffix='_zip_content', prefix='man2bndl_', ignore_cleanup_errors=True) as temp_dir:
+            with tempfile.TemporaryDirectory(suffix='_zip_content', prefix='man2bndl_') as temp_dir:
                 self.create_bundle(temp_dir)
                 zip_file_base = re.sub('\.zip$', '', self.output)
                 shutil.make_archive(zip_file_base, 'zip', temp_dir)
