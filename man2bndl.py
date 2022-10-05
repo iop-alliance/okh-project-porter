@@ -161,28 +161,25 @@ class BundleCreator:
         os.mkdir(files_dir)
 
         url_files_dir = os.path.join(files_dir, 'url')
-        os.mkdir(url_files_dir)
-
         hashed_files_dir = os.path.join(files_dir, 'hashed')
-        os.mkdir(hashed_files_dir)
-
         subj_files_dir = os.path.join(files_dir, 'subjects')
-        os.mkdir(subj_files_dir)
-
         subj_name_files_dir = os.path.join(files_dir, 'subject_names')
-        os.mkdir(subj_name_files_dir)
-
         named_files_dir = os.path.join(files_dir, 'name')
-        os.mkdir(named_files_dir)
-
         path_files_dir = os.path.join(files_dir, 'path')
-        os.mkdir(path_files_dir)
-
         flat_path_files_dir = os.path.join(files_dir, 'flat_path')
-        os.mkdir(flat_path_files_dir)
-
         labeled_files_dir = os.path.join(files_dir, 'label')
-        os.mkdir(labeled_files_dir)
+
+        os.mkdir(url_files_dir)
+        if is_debug():
+            os.mkdir(files_dir)
+        else:
+            os.mkdir(hashed_files_dir)
+            os.mkdir(subj_files_dir)
+            os.mkdir(subj_name_files_dir)
+            os.mkdir(named_files_dir)
+            os.mkdir(path_files_dir)
+            os.mkdir(flat_path_files_dir)
+            os.mkdir(labeled_files_dir)
 
         file_index = 0
         for s, p, perma_url in self.graph.triples((None, OKH.permaURL, None)):
@@ -195,16 +192,18 @@ class BundleCreator:
             file_path = get_filepath_from_url(perma_url)
             file_path_flat = file_path.replace('/', '_')
             print(f"Downloading file {file_index}:")
-            print(f"\tsubject name: '{subj_name}'")
-            print(f"\thash:           {url_hash}")
-            print(f"\tfile name:      '{file_name}'")
-            print(f"\tfile path:      '{file_path}'")
-            print(f"\tfile path flat: '{file_path_flat}'")
-            print(f"\tlabel:          '{label}'")
-            print(f"\tsubject:        '{s}'")
+            if is_debug():
+                print(f"\tsubject name: '{subj_name}'")
+                print(f"\thash:           {url_hash}")
+                print(f"\tfile name:      '{file_name}'")
+                print(f"\tfile path:      '{file_path}'")
+                print(f"\tfile path flat: '{file_path_flat}'")
+                print(f"\tlabel:          '{label}'")
+                print(f"\tsubject:        '{s}'")
             print(f"\tokh:permaURL:   '{perma_url}'")
             print(f"\t...")
             
+            main_file = os.path.join(files_dir, url_to_path(perma_url))
             hashed_file = os.path.join(hashed_files_dir, url_hash)
             url_file = os.path.join(url_files_dir, url_to_path(perma_url))
             labeled_file = os.path.join(labeled_files_dir, label)
@@ -214,18 +213,23 @@ class BundleCreator:
             path_file = os.path.join(path_files_dir, file_path)
             path_flat_file = os.path.join(flat_path_files_dir, file_path_flat)
 
-            if self.dry:
-                touch(hashed_file)
+            if is_debug():
+                if self.dry:
+                    touch(hashed_file)
+                else:
+                    download(perma_url, hashed_file)
+                create_link(hashed_file, url_file)
+                create_link(hashed_file, subj_file)
+                create_link(hashed_file, subj_name_file)
+                create_link(hashed_file, named_file)
+                create_link(hashed_file, path_file)
+                create_link(hashed_file, path_flat_file)
+                create_link(hashed_file, labeled_file)
             else:
-                download(perma_url, hashed_file)
-
-            create_link(hashed_file, url_file)
-            create_link(hashed_file, subj_file)
-            create_link(hashed_file, subj_name_file)
-            create_link(hashed_file, named_file)
-            create_link(hashed_file, path_file)
-            create_link(hashed_file, path_flat_file)
-            create_link(hashed_file, labeled_file)
+                if self.dry:
+                    touch(main_file)
+                else:
+                    download(perma_url, main_file)
 
             file_index = file_index + 1
 
