@@ -169,10 +169,8 @@ class BundleCreator:
         flat_path_files_dir = os.path.join(files_dir, 'flat_path')
         labeled_files_dir = os.path.join(files_dir, 'label')
 
-        os.mkdir(url_files_dir)
         if is_debug():
-            os.mkdir(files_dir)
-        else:
+            os.mkdir(url_files_dir)
             os.mkdir(hashed_files_dir)
             os.mkdir(subj_files_dir)
             os.mkdir(subj_name_files_dir)
