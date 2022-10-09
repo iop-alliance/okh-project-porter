@@ -4,7 +4,7 @@ SPDX-FileCopyrightText: 2022 Robin Vobruba <hoijui.quaero@gmail.com>
 SPDX-License-Identifier: CC0-1.0
 -->
 
-# IoPA OKH-LOSH Bundle-Builder
+# IoPA OKH Project Porter
 
 [![GitHub license](
     https://img.shields.io/github/license/hoijui/BundleBuilder.svg?style=flat)](
