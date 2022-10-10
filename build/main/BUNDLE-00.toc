@@ -1,3 +1,0 @@
-([('main',
-   '/Users/lurnid/code/projects/iopa/portability/okh-project-porter/dist/main',
-   'EXECUTABLE')],)
