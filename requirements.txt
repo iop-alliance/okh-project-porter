@@ -1,8 +1,17 @@
-# SPDX-FileCopyrightText: 2022 Robin Vobruba <hoijui.quaero@gmail.com>
-#
-# SPDX-License-Identifier: Unlicense
-
-# Python dependencies (for man2bndl)
+altgraph==0.17.3
+certifi==2022.9.24
+charset-normalizer==2.0.12
 click==8.0.3
+idna==3.4
+isodate==0.6.1
+macholib==1.16.2
+psgcompiler==1.5.1
+psgdemos==1.12.1
+pyinstaller==5.5
+pyinstaller-hooks-contrib==2022.10
+pyparsing==3.0.9
+PySimpleGUI==4.60.3
 rdflib==6.2.0
 requests==2.27.1
+six==1.16.0
+urllib3==1.26.12
