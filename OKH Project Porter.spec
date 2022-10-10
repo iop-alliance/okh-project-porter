@@ -38,13 +38,7 @@ exe = EXE(
     console=False,
     disable_windowed_traceback=False,
     argv_emulation=False,
-    target_arch='universal2',
+    target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-)
-app = BUNDLE(
-    exe,
-    name='OKH Project Porter.app',
-    icon=None,
-    bundle_identifier='or.internetofproduction.tools.okh-project-porter',
 )
