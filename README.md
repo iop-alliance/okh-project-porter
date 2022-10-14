@@ -10,16 +10,18 @@ SPDX-License-Identifier: CC0-1.0
     https://img.shields.io/github/license/hoijui/BundleBuilder.svg?style=flat)](
     ./LICENSE)
 [![REUSE status](
-    https://api.reuse.software/badge/github.com/hoijui/BundleBuilder)](
-    https://api.reuse.software/info/github.com/hoijui/BundleBuilder)
+    https://api.reuse.software/badge/github.com/iop-alliance/okh-project-porter)](
+    https://api.reuse.software/info/github.com/iop-alliance/okh-project-porter)
 
-CLI tool that takes an OKH-LOSH RDF manifest as input,
-and generates a bundle from it.
-A Bundle is either a folder on the FS or a zip file,
-each respectively containing the manifest file
-and all the files linked to by it.
+This is a project that provides tooling that takes an OKH-LOSH RDF manifest as input,
+and generates a bundle from it, which includes a copy of the original manifest file and 
+all of the files that the manifest describes.
 
-## Usage
+# Command Line Tool
+
+The command line tool can extract the project's files either as a folder on the file system or a zip file, each respectively containing the manifest file and all the files linked to by it.
+
+### Usage
 
 Either with a local manifest-file:
 
@@ -43,3 +45,15 @@ the `.zip` suffix is required in this case:
 ```shell
 python3 src/man2bndl.py project.ttl bundle.zip
 ```
+
+## GUI Tool
+
+There is a version of the tool that allows the user to extract a project's file from a manifest using a GUI. 
+
+This is avialable for the following platforms:
+
+* Windows: [download](dist/OKH%20Project%20Porter.exe)
+* MacOS: [download](dist/MacOS%20Installer/OKH%20Project%20Porter.dmg)
+* Linux: [download](dist/okh-project-porter)
+
+The Windows and MacOS version haven't been digitally signed yet so you will need to override the default OS behaviour to allow the files to run.
