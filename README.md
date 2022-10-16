@@ -17,19 +17,22 @@ This is a project that provides tooling that takes an OKH-LOSH RDF manifest as i
 and generates a bundle from it, which includes a copy of the original manifest file and 
 all of the files that the manifest describes.
 
-There are two version of the tooling: a graphical user interface (GUI) and a commang line interface version.
+There are two version of the tooling: a graphical user interface (GUI) and a command line interface version.
 
 ## GUI Tool
 
 There is a version of the tool that allows the user to extract a project's file from a manifest using a GUI. 
 
-This is avialable for the following platforms:
+This is available for the following platforms:
 
 * Windows: [download](dist/OKH%20Project%20Porter.exe)
 * MacOS: [download](dist/MacOS%20Installer/OKH%20Project%20Porter.dmg)
 * Linux: [download](dist/okh-project-porter)
 
 The Windows and MacOS version haven't been digitally signed yet so you will need to override the default OS behaviour to allow the files to run.
+
+* For Windows install override, see [change app recommendation settings in Windows](https://support.microsoft.com/en-us/windows/change-your-app-recommendation-settings-in-windows-f21b5c60-e996-4ee4-c2cf-b4a90c0bef9b) to allow for "OKH Project Porter" install.
+* For macOS intall override, navigate to macOS [General Security & Privacy Settings](https://support.apple.com/guide/mac-help/change-security-privacy-general-preferences-mh11784/mac) to allow for "OKH Project Porter" install.
 
 ## Command Line Tool
 
