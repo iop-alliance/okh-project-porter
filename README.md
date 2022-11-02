@@ -4,14 +4,14 @@ SPDX-FileCopyrightText: 2022 Robin Vobruba <hoijui.quaero@gmail.com>
 SPDX-License-Identifier: CC0-1.0
 -->
 
+<div style="text-align: center;">
+
+![OKH Project Porter logo](okh-project-porter-logo.png "OKH Project Porter")
+
 # IoPA OKH Project Porter
 
-[![GitHub license](
-    https://img.shields.io/github/license/hoijui/BundleBuilder.svg?style=flat)](
-    ./LICENSE)
-[![REUSE status](
-    https://api.reuse.software/badge/github.com/iop-alliance/okh-project-porter)](
-    https://api.reuse.software/info/github.com/iop-alliance/okh-project-porter)
+</div>
+
 
 This is a project that provides tooling that takes an OKH-LOSH RDF manifest as input,
 and generates a bundle from it, which includes a copy of the original manifest file and 
