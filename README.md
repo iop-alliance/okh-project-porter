@@ -4,13 +4,14 @@ SPDX-FileCopyrightText: 2022 Robin Vobruba <hoijui.quaero@gmail.com>
 SPDX-License-Identifier: CC0-1.0
 -->
 
-<div style="text-align: center;">
+<p align="center">
 
-![OKH Project Porter logo](okh-project-porter-logo.png "OKH Project Porter")
+<img width="200" src="okh-project-porter-logo.png" alt="OKH Project Porter logo">
+
+</p>
 
 # IoPA OKH Project Porter
 
-</div>
 
 
 This is a project that provides tooling that takes an OKH-LOSH RDF manifest as input,
